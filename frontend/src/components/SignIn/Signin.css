@@ -1,0 +1,108 @@
+.signin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+.signin-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 0px;
+  height: 100vh;
+  text-align: center;
+}
+
+.signin-left .website-name {
+  font-size: 2em;
+  text-decoration: none;
+  margin-top: 20px;
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+
+.signin-left h2 {
+  margin-top: 20px;
+  font-size: 1.4em;
+  padding-left: 13px;
+  padding-right: 13px;
+  font-weight: 500;
+}
+
+.signin-left img {
+  margin-top: 100px;
+  max-width: 80%;
+  height: auto;
+}
+
+.signin-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0px;
+  height: 100vh;
+  position: relative;
+}
+
+.signup-link-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.signup-link {
+  margin-top: 30px;
+  font-size: 1.1em;
+}
+
+.signup-link a {
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.signin-right h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
