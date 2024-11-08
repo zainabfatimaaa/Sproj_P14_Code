@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import LandingPageC from './components/AuthPages/LandingPageC';
-import SignUpC from './components/AuthPages/SignUpC';
-import SignInC from './components/AuthPages/SignInC';
+import LandingPageC from './components/AuthPages/LandingPageC.jsx';
+import SignUpC from './components/AuthPages/SignUpC.jsx';
+import SignInC from './components/AuthPages/SignInC.jsx';
 
 function App() {
   return (

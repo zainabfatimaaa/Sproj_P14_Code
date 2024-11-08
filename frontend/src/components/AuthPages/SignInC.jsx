@@ -1,5 +1,5 @@
 import React from 'react';
-import SignIn from './SignIn/Signin';
+import SignIn from '../SignIn/Signin.jsx';
 
 function SignInC() {
   return (
