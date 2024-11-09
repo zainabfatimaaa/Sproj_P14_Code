@@ -5,6 +5,7 @@ import LandingPageC from './components/AuthPages/LandingPageC.jsx';
 import SignUpC from './components/AuthPages/SignUpC.jsx';
 import SignInC from './components/AuthPages/SignInC.jsx';
 import ProductsDisplay from './components/ProductDisplay/ProductsDisplay.jsx'
+import ProductDets from './components/ProductDetails/ProductDets.jsx'; // Import ProductDetails component
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signup" element={<SignUpC />} />
           <Route path="/signin" element={<SignInC />} />
           <Route path="/products" element={<ProductsDisplay />} />
+          <Route path="/product/:id" element={<ProductDets />} /> {/* Route for ProductDets */}
         </Routes>
       </div>
     </Router>

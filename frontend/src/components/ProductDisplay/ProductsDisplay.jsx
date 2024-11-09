@@ -48,6 +48,11 @@ function ProductsDisplay() {
         }
     });
 
+    // Navigate to product details page when a product card is clicked
+    const handleCardClick = (productId) => {
+        navigate(`/product/${productId}`); // Navigate to ProductDets page with the product ID
+    };
+
     return (
         <div className="products-container">
             <div className="options">
@@ -69,6 +74,11 @@ function ProductsDisplay() {
             </div>
             <div className="products-grid" style={{ gridTemplateColumns: `repeat(${productsPerRow}, 1fr)` }}>
                 {sortedProducts.map((product) => (
+                    <div 
+                        key={product._id} 
+                        className="product-card" 
+                        onClick={() => handleCardClick(product._id)} // Click handler for product card
+                    >
                     <div key={product._id} className="product-card">
                         <img
                             src="/images/kurta.jpg" // Placeholder image

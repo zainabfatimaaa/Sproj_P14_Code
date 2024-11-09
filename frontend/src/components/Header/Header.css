@@ -18,6 +18,30 @@
   margin: 0;
 }
 
+/* Search bar styling */
+.search-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 20px; /* Add margin for spacing between logo and button */
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px; /* Set a max width for the search bar */
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+
 /* Sign-up button container */
 .signup-button button {
   padding: 10px 20px;
@@ -39,10 +63,16 @@
 @media (max-width: 768px) {
   .header {
     padding: 15px 20px;
+    flex-direction: column;
   }
 
   .logo h1 {
     font-size: 24px;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 10px 0;
   }
 
   .signup-button button {
