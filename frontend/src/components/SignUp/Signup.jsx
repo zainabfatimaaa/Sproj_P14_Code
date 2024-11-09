@@ -96,8 +96,8 @@ function SignUp() {
   return (
     <div className="signup-container">
       <div className="signup-left">
-        <a href="/" className="website-name">Website Name</a>
-        <h2>Shop Savvy</h2>
+        <a href="/" className="website-name">Shop Savvy</a>
+        <h2></h2>
       </div>
       <div className="signup-right">
         <div className="member-link">

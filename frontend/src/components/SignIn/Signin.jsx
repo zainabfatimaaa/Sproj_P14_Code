@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './Signin.css'
 const TOKEN_KEY = 'token';
 
 function SignIn() {
@@ -39,8 +39,8 @@ function SignIn() {
   return (
     <div className="signin-container">
       <div className="signin-left">
-        <a href="/" className="website-name">Website Name</a>
-        <h2>(website name)!</h2>
+        <a href="/" className="website-name">Shop Savvy</a>
+        <h2></h2>
       </div>
       <div className="signin-right">
         <div className="signup-link-container">
