@@ -4,6 +4,7 @@ import './App.css';
 import LandingPageC from './components/AuthPages/LandingPageC.jsx';
 import SignUpC from './components/AuthPages/SignUpC.jsx';
 import SignInC from './components/AuthPages/SignInC.jsx';
+import ProductsDisplay from './components/ProductDisplay/ProductsDisplay.jsx'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<LandingPageC />} />
           <Route path="/signup" element={<SignUpC />} />
           <Route path="/signin" element={<SignInC />} />
+          <Route path="/products" element={<ProductsDisplay />} />
         </Routes>
       </div>
     </Router>

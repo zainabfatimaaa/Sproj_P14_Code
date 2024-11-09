@@ -56,16 +56,13 @@ const dummyProducts = [
 ];
 
 
-const mongoURI = process.env.MONGODB_URI;
 
 async function populateProducts() {
-    await mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
     await Product.deleteMany({});  // Clears existing products if you want to reset
     await Product.insertMany(dummyProducts);
 
     console.log("Database populated with dummy products");
-    mongoose.disconnect();
 }
 
 populateProducts();

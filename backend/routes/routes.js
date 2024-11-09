@@ -2,7 +2,6 @@ import express from 'express';
 import signUpRoute from './SignUp.js';
 import signInRoute from './SignIn.js';
 import fetchProducts from './FetchProducts.js'
-// import userInfoRoute from './UserInfo.js'
 
 
 
@@ -10,8 +9,7 @@ const router = express.Router();
 
 router.use('/signup', signUpRoute);
 router.use('/signin', signInRoute);
-router.use('/products', fetchProducts);
-// router.use('/userinfo', userInfoRoute);
+router.use('/fetchproducts', fetchProducts);
 
 
 // Add a product to the user's wishlist
