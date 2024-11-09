@@ -1,12 +1,26 @@
-// ProductsDisplay.jsx
-import React, { useState } from 'react';
-import './ProductsDisplay.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import './ProductsDisplay.css'; // Import the CSS file for styling
 
-function ProductsDisplay({ products }) { // Accept products as a prop
-    const [productsPerRow, setProductsPerRow] = useState(4); // Default 4 products per row
-    const [sortOption, setSortOption] = useState('name-asc'); // Default sorting by Name A-Z
-    const navigate = useNavigate();
+function ProductsDisplay() {
+    const [products, setProducts] = useState([]);
+    const [productsPerRow, setProductsPerRow] = useState(4);  // Default 4 products per row
+    const [sortOption, setSortOption] = useState('name-asc');  // Default sorting by Name A-Z
+
+    // Fetch products from the backend
+    useEffect(() => {
+        async function fetchProducts() {
+            try {
+                const response = await fetch('http://localhost:8000/api/fetchproducts');
+                console.log(response);
+                const data = await response.json();
+                setProducts(data);
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        }
+
+        fetchProducts();
+    }, []);
 
     // Handle change of products per row
     const handleProductsPerRowChange = (event) => {
@@ -65,6 +79,7 @@ function ProductsDisplay({ products }) { // Accept products as a prop
                         className="product-card" 
                         onClick={() => handleCardClick(product._id)} // Click handler for product card
                     >
+                    <div key={product._id} className="product-card">
                         <img
                             src="/images/kurta.jpg" // Placeholder image
                             alt={product.name}

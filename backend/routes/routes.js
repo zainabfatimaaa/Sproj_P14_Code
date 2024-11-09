@@ -11,6 +11,7 @@ router.use('/signup', signUpRoute);
 router.use('/signin', signInRoute);
 router.use('/fetchproducts', fetchProducts);
 
+
 // Add a product to the user's wishlist
 // router.post('/wishlist', async (req, res) => {
 //     const { userId, productId } = req.body;

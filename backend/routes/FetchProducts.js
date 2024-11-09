@@ -12,9 +12,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-
-
 // New route to fetch a product by its ID
 router.get('/:id', async (req, res) => {
     try {
@@ -29,5 +26,4 @@ router.get('/:id', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch product details' });
     }
 });
-
 export default router;
