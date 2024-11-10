@@ -26,10 +26,10 @@ const accountSchema = new mongoose.Schema({
         required: true,
         minlength: 6
     },
-    wishlist: {
+    wishlist: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product',
-    }
+        ref: 'Product', 
+    }]
 }, { timestamps: true });
 
 accountSchema.pre('save', async function (next) {

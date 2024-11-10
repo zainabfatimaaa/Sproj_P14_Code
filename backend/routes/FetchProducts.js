@@ -47,6 +47,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+
 // New route to fetch a product by its ID
 router.get('/:id', async (req, res) => {
     try {
