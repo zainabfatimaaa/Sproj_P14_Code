@@ -38,6 +38,7 @@ router.get('/', async (req, res) => {
                     fs.writeFileSync(imagePath, imageBuffer);
                 }
             });
+            
         }
 
         res.json(products); 
