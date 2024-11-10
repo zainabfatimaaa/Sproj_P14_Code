@@ -3,8 +3,8 @@
 }
 
 .options {
-    margin-bottom: 20px;
-    text-align: right;
+    display: flex;
+    flex-direction: column;
 }
 
 select {
@@ -16,17 +16,13 @@ select {
 .products-grid {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(4, 1fr); /* Default 4 products per row */
 }
 
 .product-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    height: 670px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .product-card:hover {
@@ -82,4 +78,29 @@ select {
 .cart-button:hover,
 .wishlist-button:hover {
     color: #f57c00; /* Hover color for the icons */
+}
+
+.color-swatch {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 4px;
+    border: 1px solid #ccc;
+}
+
+.size-option {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 2px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
 }

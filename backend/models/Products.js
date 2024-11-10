@@ -9,25 +9,33 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    brand: {
+    colors: {
+        type: [String],  // Array of colors
+        required: true,
+    },
+    sizes: {
+        type: [String],  // Array of sizes
+        required: true,
+    },
+    primary_color: {
         type: String,
         required: true,
     },
-    category: {
-        type: String,
-        required: true,
-    },
-    image: {
-        type: String,
-        required: true,  // Store the path or URL to the image
-    },
-    availability: {
-        type: Boolean,
-        default: true,
-    },
-    link: {
+    redirect_link: {
         type: String,
         required: true,  // Link to the brand’s website
+    },
+    type: {
+        type: String,
+        required: true,
+    },
+    gender: {
+        type: String,
+        required: true,
+    },
+    images: {
+        type: [Buffer],  // Array of images stored as binary data (Buffer)
+        required: true,
     }
 }, { timestamps: true });
 

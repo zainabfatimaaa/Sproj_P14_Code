@@ -32,13 +32,69 @@ function ProductDetails() {
 
     return (
         <div className="product-details">
-            <img src={product.image || "/images/placeholder.jpg"} alt={product.name} className="product-image" />
-            <h2>{product.name}</h2>
-            <p><strong>Brand:</strong> {product.brand}</p>
-            <p><strong>Price:</strong> ₹{product.price}</p>
-            <p><strong>Description:</strong> {product.description}</p>
-            <button className="add-to-cart">Add to Cart</button>
+            {/* Display Product Name */}
+            <h2 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '10px' }}>{product.name}</h2>
+
+            {/* Display Brand */}
+            <p style={{ fontSize: '18px', marginBottom: '10px' }}><strong>LAMA Retail</strong></p>
+
+            {/* Display Price */}
+            <p style={{ fontSize: '18px', marginBottom: '20px' }}><strong>Rs.</strong> {product.price}</p>
+
+            {/* Display First Image */}
+            <img
+                src={`/images/${product._id}/image1.jpg`}
+                alt={`${product.name} - Image 1`}
+                className="product-image"
+                style={{ width: '100%', maxWidth: '400px', borderRadius: '8px', marginBottom: '20px' }}
+                onError={(e) => e.target.style.display = 'none'} // Hide image if not available
+            />
+
+            {/* Display Available Colors */}
+            <p style={{ fontSize: '18px', marginBottom: '10px' }}><strong>Available Colors:</strong> 
+                {product.colors.length > 0 ? product.colors.join(', ') : 'No colors available'}
+            </p>
+
+            {/* Display Available Sizes */}
+            <p style={{ fontSize: '18px', marginBottom: '20px' }}><strong>Available Sizes:</strong> 
+                {product.sizes.length > 0 ? product.sizes.join(', ') : 'No sizes available'}
+            </p>
+
+            {/* Display Redirection Link */}
+            <p style={{ fontSize: '18px', marginBottom: '20px' }}><strong>Redirection Link:  </strong> 
+                <a href={product.redirect_link} target="_blank" rel="noopener noreferrer" style={{ color: '#1976D2' }}>
+                    {product.redirect_link}
+                </a>
+            </p>
+            <p style={{ fontSize: '18px', marginBottom: '20px' }}><strong>________________________________________________________________________</strong></p>
+            <p style={{ fontSize: '18px', marginBottom: '20px' }}><strong>OTHER IMAGES</strong></p>
+
+            {/* Display Other Images */}
+            <div className="other-images">
+                {Array.from({ length: 10 }).map((_, index) => {
+                    const imageNumber = index + 2; // Start from image2.jpg
+                    const imageUrl = `/images/${product._id}/image${imageNumber}.jpg`;
+
+                    return (
+                        <img
+                            key={imageNumber}
+                            src={imageUrl}
+                            alt={`${product.name} - Image ${imageNumber}`}
+                            className="product-image"
+                            style={{
+                                width: '100%',
+                                maxWidth: '400px',
+                                borderRadius: '8px',
+                                marginBottom: '20px',
+                                display: 'inline-block',
+                            }}
+                            onError={(e) => e.target.style.display = 'none'} // Hide image if not available
+                        />
+                    );
+                })}
+            </div>
         </div>
+
     );
 }
 
