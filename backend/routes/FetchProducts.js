@@ -19,7 +19,7 @@ console.log("Images Directory Path:", imagesDir);
 router.get('/', async (req, res) => {
     try {
         // const products = await Product.find();
-        const products = await Product.find().limit(10);
+        const products = await Product.find().limit(4);
 
         for (const product of products) {
             const productFolder = path.join(imagesDir, product._id.toString());
