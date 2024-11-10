@@ -15,6 +15,7 @@ const imagesDir = path.join(__dirname, '../..', 'frontend', 'public', 'images');
 // Debugging: Ensure imagesDir is correctly constructed
 console.log("Images Directory Path:", imagesDir);
 
+
 // Route to fetch all products
 router.get('/', async (req, res) => {
     try {
