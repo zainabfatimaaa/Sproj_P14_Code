@@ -26,7 +26,7 @@ select {
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
-    height: 420px;
+    height: 670px;
 }
 
 .product-card:hover {

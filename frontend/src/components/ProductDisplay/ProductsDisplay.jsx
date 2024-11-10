@@ -110,14 +110,34 @@
 
 
 // ProductsDisplay.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProductsDisplay.css';
 
-function ProductsDisplay({ products }) { // Accept products as a prop
+function ProductsDisplay({ products }) {
     const [productsPerRow, setProductsPerRow] = useState(4); // Default 4 products per row
     const [sortOption, setSortOption] = useState('name-asc'); // Default sorting by Name A-Z
+    const [wishlist, setWishlist] = useState([]); // State to track wishlist
     const navigate = useNavigate();
+
+    useEffect(() => {
+        // Fetch initial wishlist items on component mount
+        const fetchWishlist = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const response = await fetch('http://localhost:8000/api/wishlist', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                const data = await response.json();
+                setWishlist(data.wishlist.map(product => product._id)); // Store only IDs for easy checking
+            } catch (error) {
+                console.error('Failed to fetch wishlist:', error);
+            }
+        };
+        fetchWishlist();
+    }, []);
 
     // Handle change of products per row
     const handleProductsPerRowChange = (event) => {
@@ -144,6 +164,34 @@ function ProductsDisplay({ products }) { // Accept products as a prop
                 return 0;
         }
     });
+
+    // Toggle wishlist status of a product
+    const toggleWishlist = async (productId) => {
+        try {
+            const token = localStorage.getItem('token');
+            if (wishlist.includes(productId)) {
+                // Remove from wishlist
+                await fetch(`http://localhost:8000/api/wishlist/remove/${productId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                setWishlist(wishlist.filter(id => id !== productId));
+            } else {
+                // Add to wishlist
+                await fetch(`http://localhost:8000/api/wishlist/add/${productId}`, {
+                    method: 'POST',
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                setWishlist([...wishlist, productId]);
+            }
+        } catch (error) {
+            console.error('Failed to update wishlist:', error);
+        }
+    };
 
     // Navigate to product details page when a product card is clicked
     const handleCardClick = (productId) => {
@@ -190,8 +238,14 @@ function ProductsDisplay({ products }) { // Accept products as a prop
                             <button className="cart-button">
                                 <i className="fas fa-cart-plus"></i>
                             </button>
-                            <button className="wishlist-button">
-                                <i className="fas fa-heart"></i>
+                            <button 
+                                className={`wishlist-button ${wishlist.includes(product._id) ? 'active' : ''}`} 
+                                onClick={(e) => {
+                                    e.stopPropagation(); // Prevent card click
+                                    toggleWishlist(product._id);
+                                }}
+                            >
+                                <i className={wishlist.includes(product._id) ? 'fas fa-heart' : 'far fa-heart'}></i>
                             </button>
                         </div>
                     </div>
