@@ -532,7 +532,7 @@ function ProductsDisplay({ products }) {
                 ))}
             </div>
         </div>
-    );
+    );    
     
 }
 
