@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
   const { email, password } = req.body;
-  console.log(email,password);
 
   try {
     const user = await Account.findOne({ email });
@@ -22,7 +21,6 @@ router.post('/', async (req, res) => {
     }
 
     const token = jwt.sign({ userId: user._id }, 'Ahmad Jabbar', { expiresIn: '1h' });
-    console.log(token);
 
     res.status(200).json({ token });
   } catch (error) {

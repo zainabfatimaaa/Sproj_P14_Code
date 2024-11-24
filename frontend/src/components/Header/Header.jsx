@@ -51,6 +51,10 @@ const Header = ({ searchQuery, setSearchQuery }) => {
     navigate('/signup');
   };
 
+  const handleSignIn = () => {
+    navigate('/signin');
+  };
+  
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value); // Update search query in LandingPageC
   };
@@ -75,6 +79,7 @@ const Header = ({ searchQuery, setSearchQuery }) => {
       <div className="header-buttons">
         <button onClick={handleWishlist}>Wishlist</button> {/* New Wishlist button */}
         <button onClick={handleSignUp}>Sign Up</button>
+        <button onClick={handleSignIn}>Sign In</button>
       </div>
     </header>
   );
