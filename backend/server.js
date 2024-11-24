@@ -5,8 +5,8 @@ import { Server } from 'socket.io';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { fileURLToPath } from 'url'; // Import fileURLToPath
-import Routes from './routes/Routes.js'; // Import Routes correctly
+import { fileURLToPath } from 'url'; 
+import Routes from './routes/routes.js'; 
 
 dotenv.config();
 
