@@ -10,11 +10,11 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     colors: {
-        type: [String],  // Array of colors
+        type: [String],  
         required: true,
     },
     sizes: {
-        type: [String],  // Array of sizes
+        type: [String],  
         required: true,
     },
     primary_color: {
@@ -23,7 +23,7 @@ const productSchema = new mongoose.Schema({
     },
     redirect_link: {
         type: String,
-        required: true,  // Link to the brand’s website
+        required: true,  
     },
     type: {
         type: String,
@@ -34,7 +34,7 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
     images: {
-        type: [Buffer],  // Array of images stored as binary data (Buffer)
+        type: [Buffer],  
         required: true,
     }
 }, { timestamps: true });
