@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 const imagesDir = path.join(__dirname, '../frontend/public/images');
 app.use('/images', express.static(imagesDir));
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 10000;
 
 const server = createServer(app);
 const io = new Server(server, {

@@ -5,7 +5,7 @@ import LandingPageC from './components/AuthPages/LandingPageC.jsx';
 import SignUpC from './components/AuthPages/SignUpC.jsx';
 import SignInC from './components/AuthPages/SignInC.jsx';
 import ProductsDisplay from './components/ProductDisplay/ProductsDisplay.jsx'
-import ProductDets from './components/ProductDetails/ProductDets.jsx'; // Import ProductDetails component
+import ProductDets from './components/ProductDetails/ProductDets.jsx'; 
 import WishlistPage from './components/WishlistPage/Wishlist.jsx';
 
 function App() {
