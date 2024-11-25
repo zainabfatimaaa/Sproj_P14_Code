@@ -15,6 +15,8 @@ const uniqueSizes = [
     'MEDIUM', '2X-TRUE (4XL)', 'X-LARGE', 'X-SMALL'
 ];
 
+const TOKEN_KEY = 'token';
+
 function ProductsDisplay({ products }) {
     const [productsPerRow, setProductsPerRow] = useState(4);
     const [nameSortOption, setNameSortOption] = useState('none');
@@ -25,11 +27,11 @@ function ProductsDisplay({ products }) {
     const [sizeFilter, setSizeFilter] = useState('all');
     const [wishlist, setWishlist] = useState([]);
     const navigate = useNavigate();
+    const token = localStorage.getItem(TOKEN_KEY);
 
     // Fetch wishlist items on component mount
     useEffect(() => {
         const fetchWishlist = async () => {
-            const token = localStorage.getItem('token');
             if (token) {
                 try {
                     const response = await fetch('http://localhost:8000/api/wishlist', {
@@ -133,7 +135,7 @@ function ProductsDisplay({ products }) {
     };
 
     if (!products || products.length === 0) {
-        return <div>No products available</div>; // Display message if products are not passed or empty
+        return <div>Loading Products...</div>; // Display message if products are not passed or empty
     }
 
     return (
@@ -219,18 +221,26 @@ function ProductsDisplay({ products }) {
                         </div>
     
                         <div className="product-actions">
-                            <button className="cart-button">
-                                <i className="fas fa-cart-plus"></i>
-                            </button>
                             <button 
-                                className={`wishlist-button ${wishlist.includes(product._id) ? 'active' : ''}`} 
+                                className="external-link-button" 
                                 onClick={(e) => {
                                     e.stopPropagation(); // Prevent card click
-                                    toggleWishlist(product._id);
+                                    window.open(product.redirect_link, '_blank'); // Open in new tab
                                 }}
                             >
-                                <i className={wishlist.includes(product._id) ? 'fas fa-heart' : 'far fa-heart'}></i>
+                                <i className="fas fa-external-link-alt"></i>
                             </button>
+                            {token && ( // Show wishlist button only if token exists
+                                <button 
+                                    className={`wishlist-button ${wishlist.includes(product._id) ? 'active' : ''}`} 
+                                    onClick={(e) => {
+                                        e.stopPropagation(); // Prevent card click
+                                        toggleWishlist(product._id);
+                                    }}
+                                >
+                                    <i className={wishlist.includes(product._id) ? 'fas fa-heart' : 'far fa-heart'}></i>
+                                </button>
+                            )}
                         </div>
                     </div>
                 ))}
