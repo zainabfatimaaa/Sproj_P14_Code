@@ -13,5 +13,4 @@ router.use('/signin', signInRoute);
 router.use('/fetchproducts', fetchProducts);
 router.use('/wishlist', wishlistRoutes);
 
-
 export default router;

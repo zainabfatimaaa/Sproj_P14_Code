@@ -2,7 +2,6 @@ import express from 'express';
 import Account from '../models/UserAccount.js';
 
 const router = express.Router();
-// console.log("Here");
 router.post('/', async (req, res) => {
   const { fullName, username, email, password } = req.body;
 
